@@ -1,0 +1,47 @@
+server:
+  port: 7900
+spring:
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:
+    platform: h2
+    schema: classpath:schema.sql
+    data: classpath:data.sql
+  application:
+    name: discovery-eureka-user
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+    com.itmuch: DEBUG
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://admin:admin@10.170.1.182:8761/eureka # http://user:password123@10.170.1.182:8761/eureka,http://user:password123@10.170.1.182:8762/eureka,http://user:password123@10.170.1.182:8763/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
+    lease-renewal-interval-in-seconds: 30
+    metadata-map:
+      zone: ABC      # eureka可以理解的元数据
+      lilizhou: BBC
+
+#---
+#spring:
+#  profiles: user7900
+#server:
+#  port: 7900
+#  #connection-timeout: 10
+#---
+#spring:
+#  profiles: user7901
+#server:
+#  port: 7901
+#  #connection-timeout: 10

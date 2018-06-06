@@ -1,0 +1,61 @@
+spring:
+  application:
+    name: EUREKA-HA
+security:
+  basic:
+    enabled: true
+  user:
+    name: user
+    password: password123
+---
+server:
+  port: 8761
+spring:
+  profiles: peer1
+eureka:
+  instance:
+    hostname: 10.170.1.182
+    lease-renewal-interval-in-seconds: 30 #定义服务续约任务的调用间隔时间 默认30s
+    lease-expiration-duration-in-seconds: 90 #用于定义服务失效时间 默认90S
+  client:
+    serviceUrl:
+      defaultZone: http://${security.user.name}:${security.user.password}@10.170.1.182:8762/eureka/,http://${security.user.name}:${security.user.password}@10.170.1.182:8763/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+  server:
+    enable-self-preservation: false #关闭自我保护机制
+---
+server:
+  port: 8762
+spring:
+  profiles: peer2
+eureka:
+  instance:
+    hostname: 10.170.1.182
+    lease-renewal-interval-in-seconds: 30 #定义服务续约任务的调用间隔时间 默认30s
+    lease-expiration-duration-in-seconds: 90 #用于定义服务失效时间 默认90S
+  client:
+    serviceUrl:
+      defaultZone: http://${security.user.name}:${security.user.password}@10.170.1.182:8761/eureka/,http://${security.user.name}:${security.user.password}@10.170.1.182:8763/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+  server:
+    enable-self-preservation: false #关闭自我保护机制
+---
+server:
+  port: 8763
+spring:
+  profiles: peer3
+eureka:
+  instance:
+    hostname: 10.170.1.182
+    lease-renewal-interval-in-seconds: 30 #定义服务续约任务的调用间隔时间 默认30s
+    lease-expiration-duration-in-seconds: 90 #用于定义服务失效时间 默认90S
+  client:
+    serviceUrl:
+      defaultZone: http://${security.user.name}:${security.user.password}@10.170.1.182:8761/eureka/,http://${security.user.name}:${security.user.password}@10.170.1.182:8762/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+    registry-fetch-interval-seconds: 60 #缓存清单修改时间 默认30S
+  server:
+    enable-self-preservation: false #关闭自我保护机制

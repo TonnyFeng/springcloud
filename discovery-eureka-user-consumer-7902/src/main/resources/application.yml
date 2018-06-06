@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: discovery-eureka-user-consumer
+server:
+  port: 7902
+user:
+  userServicePath: http://10.170.1.182:7900/simple/
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://admin:admin@10.170.1.182:8761/eureka #,http://user:password123@10.170.1.182:8762/eureka,http://user:password123@10.170.1.182:8763/eureka
+  instance:
+    prefer-ip-address: true
