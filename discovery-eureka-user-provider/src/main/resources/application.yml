@@ -22,7 +22,7 @@ logging:
 eureka:
   client:
     healthcheck:
-      enabled: true
+      enabled: true #使用health端点来代替心跳表明服务是否可用，反应到eureka server ui上服务的UP还是DOWN
     serviceUrl:
       defaultZone: http://admin:admin@10.170.1.182:8761/eureka # http://user:password123@10.170.1.182:8761/eureka,http://user:password123@10.170.1.182:8762/eureka,http://user:password123@10.170.1.182:8763/eureka
   instance:
