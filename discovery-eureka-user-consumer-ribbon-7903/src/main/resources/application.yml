@@ -12,6 +12,7 @@ user:
   userServicePath: http://discovery-eureka-user/simple/
 discovery-eureka-user:
   ribbon:
+   NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RetryRule
 
 eureka:
   client:

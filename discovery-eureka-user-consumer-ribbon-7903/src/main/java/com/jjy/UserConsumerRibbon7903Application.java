@@ -14,8 +14,8 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableSwagger2Doc
-@RibbonClient(name = "discovery-eureka-user", configuration = TestConfiguration.class)
-@ComponentScan(excludeFilters = { @ComponentScan.Filter(type = FilterType.ANNOTATION, value = ExcludeFromComponentScan.class) })
+//@RibbonClient(name = "discovery-eureka-user", configuration = TestConfiguration.class)
+//@ComponentScan(excludeFilters = { @ComponentScan.Filter(type = FilterType.ANNOTATION, value = ExcludeFromComponentScan.class) })
 public class UserConsumerRibbon7903Application {
 
 	@Bean

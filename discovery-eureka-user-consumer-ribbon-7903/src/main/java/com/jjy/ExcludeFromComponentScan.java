@@ -1,5 +1,5 @@
-package com.jjy;
-
-public @interface ExcludeFromComponentScan {
-
-}
+//package com.jjy;
+//
+//public @interface ExcludeFromComponentScan {
+//
+//}
