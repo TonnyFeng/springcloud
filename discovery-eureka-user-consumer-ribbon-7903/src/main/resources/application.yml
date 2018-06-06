@@ -18,7 +18,7 @@ eureka:
     healthcheck:
       enabled: true
     serviceUrl:
-      defaultZone: http://user:password123@10.170.1.182:8761/eureka,http://user:password123@10.170.1.182:8762/eureka,http://user:password123@10.170.1.182:8763/eureka
+      defaultZone: http://admin:admin@10.170.1.182:8761/eureka #,http://user:password123@10.170.1.182:8762/eureka,http://user:password123@10.170.1.182:8763/eureka
     eureka-server-connect-timeout-seconds: 10
     eureka-server-read-timeout-seconds: 1000
   instance:
