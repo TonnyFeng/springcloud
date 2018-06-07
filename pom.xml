@@ -17,6 +17,7 @@
 		<module>discovery-eureka-ha</module>
 		<module>discovery-eureka-user-consumer-7902</module>
 		<module>discovery-eureka-user-consumer-ribbon-7903</module>
+		<module>discovery-eureka-user-consumer-ribbon-hystrix-7904</module>
 		<module>discovery-eureka-user-consumer-feign</module>
 	</modules>
 	<properties>

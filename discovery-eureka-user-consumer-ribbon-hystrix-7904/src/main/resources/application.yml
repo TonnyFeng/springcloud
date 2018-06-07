@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: discovery-eureka-user-consumer-ribbon-hystrix
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true
+server:
+  port: 7904
+  connection-timeout: 10
+user:
+  userServicePath: http://discovery-eureka-user/simple/
+discovery-eureka-user:
+  ribbon:
+   NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RetryRule
+
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://admin:admin@10.170.1.182:8761/eureka #,http://user:password123@10.170.1.182:8762/eureka,http://user:password123@10.170.1.182:8763/eureka
+    eureka-server-connect-timeout-seconds: 10
+    eureka-server-read-timeout-seconds: 1000
+  instance:
+    prefer-ip-address: true
